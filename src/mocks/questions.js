@@ -1,9 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./app.jsx";
+const AVATAR_URL = `https://api.adorable.io/avatars/128`;
 
-
-const questions = [
+export default [
   {
     type: `genre`,
     genre: `rock`,
@@ -18,34 +15,23 @@ const questions = [
       genre: `jazz`,
     }, {
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      genre: `rock`,
+      genre: `rap`,
     }],
   }, {
     type: `artist`,
     song: {
-      artist: `Jim Beam`,
+      artist: `Shnurov`,
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     },
     answers: [{
-      picture: `https://api.adorable.io/avatars/128/1`,
-      artist: `John Snow`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `Sergey Shnurov`,
     }, {
-      picture: `https://api.adorable.io/avatars/128/2`,
-      artist: `Jack Daniels`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `Timati`,
     }, {
-      picture: `https://api.adorable.io/avatars/128/3`,
-      artist: `Jim Beam`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `Elvis Presley`,
     }],
-  },
+  }
 ];
-
-it(`Render App`, () => {
-  const tree = renderer
-    .create(<App
-      errorsCount={3}
-      questions={questions}
-    />)
-    .toJSON();
-
-  expect(tree).toMatchSnapshot();
-});

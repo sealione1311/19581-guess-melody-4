@@ -9,17 +9,17 @@ Enzyme.configure({
 
 describe(`Simulate button click`, () => {
   it(`Should welcome button be pressed`, () => {
-    const welcomeButtonHandler = jest.fn();
+    const hendleWelcomeButtonClick = jest.fn();
     const welcomeScreen = shallow(
         <WelcomeScreen
           errorsCount={3}
-          welcomeButtonHandler={welcomeButtonHandler}
+          onWelcomeButtonClick={hendleWelcomeButtonClick}
         />
     );
     const welcomeButton = welcomeScreen.find(`button.welcome__button`);
 
     welcomeButton.simulate(`click`);
 
-    expect(welcomeButtonHandler).toHaveBeenCalledTimes(1);
+    expect(hendleWelcomeButtonClick).toHaveBeenCalledTimes(1);
   });
 });
